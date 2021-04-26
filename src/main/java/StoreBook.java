@@ -27,20 +27,13 @@ public class StoreBook {
     }
 
 
+
     public Books[] getInfo() {
         return storage;
     }
 
-    public Books[] removeBook() {
-        return storage;
-    }
-
-    public static void main(String[] args) {
-        StoreBook books = new StoreBook();
-       // books.add();
-        for (int i = 0; i < books.storage.length; i++) {
-            System.out.println(books.storage[i].name + books.storage[i].price);
-        }
+    public void removeBook(int index) {
 
     }
+
 }
