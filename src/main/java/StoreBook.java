@@ -3,9 +3,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class StoreBook  {
-    private int countOfBooks;
-    private List<Book> books = new ArrayList ();
+public class StoreBook {
+    private List<Book> books = new ArrayList();
 
     // for(int i = 0; i < books.size(); i++) {
     //     Book book1 = books.get(i);
@@ -18,10 +17,8 @@ public class StoreBook  {
 
 
     public void add(Book book) {
-        books.add (book);
-        countOfBooks++;
+        books.add(book);
     }
-
 
 
     public List<Book> getAllBooks() {
@@ -29,24 +26,30 @@ public class StoreBook  {
     }
 
     public List<Book> removeBookByTheName(String name) {
-        books.removeIf (myname -> myname.name.equals (name));
+        books.removeIf(myname -> myname.name.equals(name));
         return books;
     }
 
     public List<Book> removeBookByTheAuthor(String author) {
-        books.removeIf (myauthor -> myauthor.author.equals (author));
+        books.removeIf(myauthor -> myauthor.author.equals(author));
         return books;
     }
 
     public List<Book> findByPrice(double price) {
-        books = books.stream ().filter (element ->
-                element.price == price).collect (Collectors.toList ());
-        return books;
+      List<Book> result = books.stream()
+                     .filter(element -> element.price == price)
+                     .collect(Collectors.toList());
+
+        return result;
     }
 
+    // TODO: re-write without stream
     public List<Book> findByAuthor(String author) {
-        books = books.stream ().filter (element -> element.author.equals (author))
-                .collect (Collectors.toList ());
-        return books;
+       List<Book> result = books.stream()
+                     .filter(element -> element.author.equals(author))
+                     .collect(Collectors.toList());
+
+        return result;
     }
+
 }
