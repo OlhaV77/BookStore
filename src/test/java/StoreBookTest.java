@@ -1,4 +1,3 @@
-import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.List;
@@ -38,11 +37,10 @@ public class StoreBookTest {
     public void removeBook_whenOneRecordExists_containsZeroRecords() {
         StoreBook subject = new StoreBook();
 
-        subject.add(new Book("History", "Viktor", 5.55));
+        Book book = new Book("History", "Viktor", 5.55);
+        subject.add(book);
 
-        subject.remove(new Book("History", "Viktor",5.55));
-
-      //  subject.removeBookByTheName("History");
+        subject.remove(book);
 
         List<Book> actual = subject.getAllBooks();
 
@@ -51,15 +49,15 @@ public class StoreBookTest {
 
 
     @Test
-    public void removeBook_whenTwoRecordExists_containsZeroRecords() {
+    public void removeBook_whenRemovingExistingRecord_containsRemainingBooks() {
         StoreBook subject = new StoreBook();
 
-        subject.add(new Book("History", "Viktor", 5.55));
+        Book book = new Book("History", "Viktor", 5.55);
+
+        subject.add(book);
         subject.add(new Book("Math", "Tom", 8.67));
 
-      //  subject.remove( new Book("History","Viktor",5.55));
-
-        subject.removeBookByTheName("History");
+        subject.remove(book);
 
         List<Book> actual =  subject.getAllBooks();
 
@@ -74,13 +72,15 @@ public class StoreBookTest {
     public void removeBook_whenOnTwoRecordExists_containsZeroRecords() {
         StoreBook subject = new StoreBook();
 
-        subject.add(new Book("History", "Viktor", 5.55));
-        subject.add(new Book("Math", "Tom", 8.67));
-        subject.add(new Book("Poems", "Taras", 10.55));
+        Book book1 = new Book("History", "Viktor", 5.55);
+        subject.add(book1);
+        Book book2 = new Book("Math", "Tom", 8.67);
+        subject.add(book2);
+        Book book3 = new Book("Poems", "Taras", 10.55);
+        subject.add(book3);
 
-
-        subject.removeBookByTheAuthor("Tom");
-        subject.removeBookByTheAuthor("Taras");
+        subject.remove(book2);
+        subject.remove(book3);
 
         List<Book> actual = subject.getAllBooks();
 
@@ -204,7 +204,7 @@ public class StoreBookTest {
 
         assertThat(actual).hasSize(2);
 
-        assertThat(subject.findByAuthor("Tsu").get(0).name).isEqualTo("Art of war");
+        assertThat(actual.get(0).name).isEqualTo("Art of war");
         assertThat(actual.get(0).author).isEqualTo("Tsu");
         assertThat(actual.get(0).price).isEqualTo(45.0);
 
@@ -223,18 +223,39 @@ public class StoreBookTest {
         subject.add(new Book("Poems", "Taras", 10.55));
         subject.add(new Book("Art", "Tsu", 20.5));
 
-        subject.findByPrice(5.55);
-
         List<Book> actual = subject.findByAuthor("Tsu");
 
         assertThat(actual).hasSize(2);
 
-        assertThat(subject.findByAuthor("Tsu").get(0).name).isEqualTo("Art of war");
+        assertThat(actual.get(0).name).isEqualTo("Art of war");
         assertThat(actual.get(0).author).isEqualTo("Tsu");
         assertThat(actual.get(0).price).isEqualTo(45.0);
 
         assertThat(actual.get(1).name).isEqualTo("Art");
         assertThat(actual.get(1).author).isEqualTo("Tsu");
+        assertThat(actual.get(1).price).isEqualTo(20.5);
+    }
+
+    @Test
+    public void findByName_whenTwoRecordExists_containsTwoRecords() {
+        StoreBook subject = new StoreBook();
+
+        subject.add(new Book("History", "Viktor", 5.55));
+        subject.add(new Book("Art", "Tsu", 45.0));
+        subject.add(new Book("Math", "Tom", 8.67));
+        subject.add(new Book("Poems", "Taras", 10.55));
+        subject.add(new Book("Art", "Robert Lee", 20.5));
+
+        List<Book> actual = subject.findByName("Art");
+
+        assertThat(actual).hasSize(2);
+
+        assertThat(actual.get(0).name).isEqualTo("Art");
+        assertThat(actual.get(0).author).isEqualTo("Tsu");
+        assertThat(actual.get(0).price).isEqualTo(45.0);
+
+        assertThat(actual.get(1).name).isEqualTo("Art");
+        assertThat(actual.get(1).author).isEqualTo("Robert Lee");
         assertThat(actual.get(1).price).isEqualTo(20.5);
     }
 
@@ -320,7 +341,7 @@ public class StoreBookTest {
         subject.add(new Book("Poems", "Taras", 10.55));
         subject.add(new Book("IT", "Amit", 5.55));
 
-        List<Book> actual = subject.sortByPriceFromLowToHigt();
+        List<Book> actual = subject.sortByPriceFromLowToHigh();
 
         assertThat(actual).hasSize(4);
 
@@ -351,7 +372,7 @@ public class StoreBookTest {
         subject.add(new Book("IT", "Amit", 60.5));
         subject.add(new Book("Art", "David Bay", 5.55));
 
-        List<Book> actual = subject.sortByPriceFromHigtToLow();
+        List<Book> actual = subject.sortByPriceFromHighToLow();
 
         assertThat(actual).hasSize(5);
 

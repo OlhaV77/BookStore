@@ -12,54 +12,41 @@ public class StoreBook {
         return books;
     }
 
-    // TODO: implement me and test
     public void remove(Book book) {
-        books.removeIf(book1 -> book1.name.equals(book.name)
-                && book1.author.equals(book.author)
-                && book1.price == book.price);
-
+        books.remove(book);
     }
-/*
-    // TODO: remove
-    public void removeBookByTheName(String name) {
-
-        books.removeIf(myname -> myname.name.equals(name));
-    }
-
-    // TODO: remove
-    public void removeBookByTheAuthor(String author) {
-
-        books.removeIf(myauthor -> myauthor.author.equals(author));
-    }
-
- */
 
     public List<Book> findByPrice(double price) {
         List<Book> result = books.stream()
-                .filter(element -> element.price == price)
+               .filter(element -> element.price == price)
                 .collect(Collectors.toList());
         return result;
     }
 
-    // TODO: re-write without stream
+    // TODO: re-write for-loop using index
     public List<Book> findByAuthor(String author) {
         List<Book> result = new ArrayList<>();
         for (Book book : books) {
             if (book.author.equals(author)) {
                 result.add(book);
             }
-            books = result;
         }
-        return books;
+        return result;
     }
 
-    //  List<Book> result = books.stream()
-    //         .filter(element -> element.author.equals(author))
-    //         .collect(Collectors.toList());
-    //  return result;
-    // }
+    public List<Book> findByName(String name) {
+        List<Book> results = new ArrayList<>();
+        for (Book book : books) {
+            if (book.name.equals(name)) {
+                results.add(book);
+            }
+        }
+        return results;
+    }
 
-    public List<Book> sortByPriceFromLowToHigt() {
+    // TODO: implement sort with comparator interface
+    public List<Book> sortByPriceFromLowToHigh() {
+
         books.sort((x, y) -> {
             if (x.price == y.price)
                 return 0;
@@ -68,7 +55,7 @@ public class StoreBook {
         return books;
     }
 
-    public List<Book> sortByPriceFromHigtToLow() {
+    public List<Book> sortByPriceFromHighToLow() {
         books.sort((x, y) -> {
             if (x.price == y.price)
                 return 0;
