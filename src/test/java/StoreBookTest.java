@@ -1,8 +1,9 @@
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.*;
 
 public class StoreBookTest {
 
@@ -39,7 +40,9 @@ public class StoreBookTest {
 
         subject.add(new Book("History", "Viktor", 5.55));
 
-        subject.removeBookByTheName("History");
+        subject.remove(new Book("History", "Viktor",5.55));
+
+      //  subject.removeBookByTheName("History");
 
         List<Book> actual = subject.getAllBooks();
 
@@ -54,9 +57,11 @@ public class StoreBookTest {
         subject.add(new Book("History", "Viktor", 5.55));
         subject.add(new Book("Math", "Tom", 8.67));
 
+      //  subject.remove( new Book("History","Viktor",5.55));
+
         subject.removeBookByTheName("History");
 
-        List<Book> actual = (List<Book>) subject.getAllBooks();
+        List<Book> actual =  subject.getAllBooks();
 
         assertThat(actual).hasSize(1);
 
@@ -233,5 +238,142 @@ public class StoreBookTest {
         assertThat(actual.get(1).price).isEqualTo(20.5);
     }
 
+
+    @Test
+    public void sortByAuthor_whenRepeatRecordExists_containsSortRecords() {
+        StoreBook subject = new StoreBook();
+
+        subject.add(new Book("History", "Viktor", 5.55));
+        subject.add(new Book("Math", "Tom", 8.67));
+        subject.add(new Book("Poems", "Taras", 10.55));
+        subject.add(new Book("IT", "Amit", 5.55));
+        subject.add(new Book("Home Art", "Viktor", 59.0));
+
+        List<Book> actual = subject.sortByAuthor();
+
+        assertThat(actual).hasSize(5);
+
+        assertThat(actual.get(0).name).isEqualTo("IT");
+        assertThat(actual.get(0).author).isEqualTo("Amit");
+        assertThat(actual.get(0).price).isEqualTo(5.55);
+
+        assertThat(actual.get(1).name).isEqualTo("Poems");
+        assertThat(actual.get(1).author).isEqualTo("Taras");
+        assertThat(actual.get(1).price).isEqualTo(10.55);
+
+        assertThat(actual.get(2).name).isEqualTo("Math");
+        assertThat(actual.get(2).author).isEqualTo("Tom");
+        assertThat(actual.get(2).price).isEqualTo(8.67);
+
+        assertThat(actual.get(3).name).isEqualTo("History");
+        assertThat(actual.get(3).author).isEqualTo("Viktor");
+        assertThat(actual.get(3).price).isEqualTo(5.55);
+
+        assertThat(actual.get(4).name).isEqualTo("Home Art");
+        assertThat(actual.get(4).author).isEqualTo("Viktor");
+        assertThat(actual.get(4).price).isEqualTo(59.0);
+    }
+
+    @Test
+    public void sortByName_whenRepeatRecordExists_containsSortRecords() {
+        StoreBook subject = new StoreBook();
+
+        subject.add(new Book("History", "Viktor", 5.55));
+        subject.add(new Book("Math", "Tom", 8.67));
+        subject.add(new Book("Poems", "Taras", 10.55));
+        subject.add(new Book("IT", "Amit", 5.55));
+        subject.add(new Book("Poems", "Robert Lee", 20.3));
+
+        List<Book> actual = subject.sortByName();
+
+        assertThat(actual).hasSize(5);
+
+        assertThat(actual.get(0).name).isEqualTo("History");
+        assertThat(actual.get(0).author).isEqualTo("Viktor");
+        assertThat(actual.get(0).price).isEqualTo(5.55);
+
+        assertThat(actual.get(1).name).isEqualTo("IT");
+        assertThat(actual.get(1).author).isEqualTo("Amit");
+        assertThat(actual.get(1).price).isEqualTo(5.55);
+
+        assertThat(actual.get(2).name).isEqualTo("Math");
+        assertThat(actual.get(2).author).isEqualTo("Tom");
+        assertThat(actual.get(2).price).isEqualTo(8.67);
+
+        assertThat(actual.get(3).name).isEqualTo("Poems");
+        assertThat(actual.get(3).author).isEqualTo("Taras");
+        assertThat(actual.get(3).price).isEqualTo(10.55);
+
+        assertThat(actual.get(4).name).isEqualTo("Poems");
+        assertThat(actual.get(4).author).isEqualTo("Robert Lee");
+        assertThat(actual.get(4).price).isEqualTo(20.3);
+
+
+    }
+
+    @Test
+    public void sortByPriceFromLowToHigt_whenRepeatRecordExists_containsSortRecords() {
+        StoreBook subject = new StoreBook();
+
+        subject.add(new Book("History", "Viktor", 5.55));
+        subject.add(new Book("Math", "Tom", 8.67));
+        subject.add(new Book("Poems", "Taras", 10.55));
+        subject.add(new Book("IT", "Amit", 5.55));
+
+        List<Book> actual = subject.sortByPriceFromLowToHigt();
+
+        assertThat(actual).hasSize(4);
+
+        assertThat(actual.get(0).name).isEqualTo("History");
+        assertThat(actual.get(0).author).isEqualTo("Viktor");
+        assertThat(actual.get(0).price).isEqualTo(5.55);
+
+        assertThat(actual.get(1).name).isEqualTo("IT");
+        assertThat(actual.get(1).author).isEqualTo("Amit");
+        assertThat(actual.get(1).price).isEqualTo(5.55);
+
+        assertThat(actual.get(2).name).isEqualTo("Math");
+        assertThat(actual.get(2).author).isEqualTo("Tom");
+        assertThat(actual.get(2).price).isEqualTo(8.67);
+
+        assertThat(actual.get(3).name).isEqualTo("Poems");
+        assertThat(actual.get(3).author).isEqualTo("Taras");
+        assertThat(actual.get(3).price).isEqualTo(10.55);
+    }
+
+    @Test
+    public void sortByPriceFromHigtToLow_whenRepeatRecordExists_containsSortRecords() {
+        StoreBook subject = new StoreBook();
+
+        subject.add(new Book("History", "Viktor", 5.55));
+        subject.add(new Book("Math", "Tom", 8.67));
+        subject.add(new Book("Poems", "Taras", 10.55));
+        subject.add(new Book("IT", "Amit", 60.5));
+        subject.add(new Book("Art", "David Bay", 5.55));
+
+        List<Book> actual = subject.sortByPriceFromHigtToLow();
+
+        assertThat(actual).hasSize(5);
+
+        assertThat(actual.get(0).name).isEqualTo("IT");
+        assertThat(actual.get(0).author).isEqualTo("Amit");
+        assertThat(actual.get(0).price).isEqualTo(60.5);
+
+        assertThat(actual.get(1).name).isEqualTo("Poems");
+        assertThat(actual.get(1).author).isEqualTo("Taras");
+        assertThat(actual.get(1).price).isEqualTo(10.55);
+
+        assertThat(actual.get(2).name).isEqualTo("Math");
+        assertThat(actual.get(2).author).isEqualTo("Tom");
+        assertThat(actual.get(2).price).isEqualTo(8.67);
+
+        assertThat(actual.get(3).name).isEqualTo("History");
+        assertThat(actual.get(3).author).isEqualTo("Viktor");
+        assertThat(actual.get(3).price).isEqualTo(5.55);
+
+        assertThat(actual.get(4).name).isEqualTo("Art");
+        assertThat(actual.get(4).author).isEqualTo("David Bay");
+        assertThat(actual.get(4).price).isEqualTo(5.55);
+    }
 
 }
