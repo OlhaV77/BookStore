@@ -18,7 +18,7 @@ public class StoreBook {
 
     public List<Book> findByPrice(double price) {
         List<Book> result = books.stream()
-               .filter(element -> element.price == price)
+                .filter(element -> element.price == price)
                 .collect(Collectors.toList());
         return result;
     }
@@ -26,9 +26,9 @@ public class StoreBook {
     // TODO: re-write for-loop using index
     public List<Book> findByAuthor(String author) {
         List<Book> result = new ArrayList<>();
-        for (Book book : books) {
-            if (book.author.equals(author)) {
-                result.add(book);
+        for (int i = 0; i < books.size(); i++) {
+            if (books.get(i).author.equals(author)) {
+                result.add(books.get(i));
             }
         }
         return result;
@@ -46,7 +46,15 @@ public class StoreBook {
 
     // TODO: implement sort with comparator interface
     public List<Book> sortByPriceFromLowToHigh() {
+        // Collections.sort(books, new Comparator<Book>() {
+        //    @Override
+        //    public int compare(Book o1, Book o2) {
+        //        for(Book book: books){
 
+        //       }
+        //       return 0;
+        //    }
+//  });
         books.sort((x, y) -> {
             if (x.price == y.price)
                 return 0;
@@ -77,6 +85,16 @@ public class StoreBook {
                 .sorted((x, y) -> x.name.compareTo(y.name))
                 .collect(Collectors.toList());
         return result;
+    }
+
+    List<Authors> authors = new ArrayList<>();
+
+    public void addAuthorFirstLastName(Authors firstLastName) {
+        authors.add(firstLastName);
+    }
+
+    public  List<Authors> getAuthorsFirstLastName(){
+        return authors;
     }
 
 }

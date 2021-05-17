@@ -1,4 +1,6 @@
-public class Book {
+import java.util.Comparator;
+
+public class Book  {
     String name;
     double price;
     String author;
@@ -8,5 +10,6 @@ public class Book {
         this.author = author;
         this.price = price;
     }
+
 
 }

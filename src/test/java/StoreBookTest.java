@@ -59,7 +59,7 @@ public class StoreBookTest {
 
         subject.remove(book);
 
-        List<Book> actual =  subject.getAllBooks();
+        List<Book> actual = subject.getAllBooks();
 
         assertThat(actual).hasSize(1);
 
@@ -395,6 +395,35 @@ public class StoreBookTest {
         assertThat(actual.get(4).name).isEqualTo("Art");
         assertThat(actual.get(4).author).isEqualTo("David Bay");
         assertThat(actual.get(4).price).isEqualTo(5.55);
+    }
+
+    @Test
+    public void firstLastName_whenThreeRecordExists_containsThreeRecords() {
+       StoreBook subject = new StoreBook();
+        subject.addAuthorFirstLastName(buildAuthor("Ion", "Tsay"));
+        subject.addAuthorFirstLastName(buildAuthor("Tom", "Bayts"));
+        subject.addAuthorFirstLastName(buildAuthor("Kim", "Lee"));
+
+        List<Authors> actual = subject.getAuthorsFirstLastName();
+
+        assertThat(actual).hasSize(3);
+
+        assertThat(actual.get(0).firstName.equals("Ion"));
+        assertThat(actual.get(0).lastName.equals("Tsay"));
+        assertThat(actual.get(1).firstName.equals("Tom"));
+        assertThat(actual.get(1).lastName.equals("Bayts"));
+        assertThat(actual.get(2).firstName.equals("Kim"));
+        assertThat(actual.get(2).lastName.equals("Lee"));
+
+
+    }
+
+    private Authors buildAuthor(String firstName, String lastName) {
+        Authors authors = new Authors();
+        authors.firstName = firstName;
+        authors.lastName = lastName;
+
+        return authors;
     }
 
 }
