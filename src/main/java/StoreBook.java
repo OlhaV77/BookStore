@@ -46,29 +46,24 @@ public class StoreBook {
 
     // TODO: implement sort with comparator interface
     public List<Book> sortByPriceFromLowToHigh() {
-        // Collections.sort(books, new Comparator<Book>() {
-        //    @Override
-        //    public int compare(Book o1, Book o2) {
-        //        for(Book book: books){
+        Collections.sort(books, new PriceFromLowtoHighComparator());
 
-        //       }
-        //       return 0;
-        //    }
-//  });
-        books.sort((x, y) -> {
-            if (x.price == y.price)
-                return 0;
-            return x.price < y.price ? -1 : 1;
-        });
+        //  books.sort((x, y) -> {
+        //     if (x.price == y.price)
+        //         return 0;
+        //     return x.price < y.price ? -1 : 1;
+        // });
         return books;
     }
 
     public List<Book> sortByPriceFromHighToLow() {
-        books.sort((x, y) -> {
-            if (x.price == y.price)
-                return 0;
-            return x.price > y.price ? -1 : 1;
-        });
+        Collections.sort(books, new PriceToHighToLowComparator());
+
+        // books.sort((x, y) -> {
+        //    if (x.price == y.price)
+        //       return 0;
+        //   return x.price > y.price ? -1 : 1;
+        // });
         return books;
     }
 
@@ -85,16 +80,6 @@ public class StoreBook {
                 .sorted((x, y) -> x.name.compareTo(y.name))
                 .collect(Collectors.toList());
         return result;
-    }
-
-    List<Authors> authors = new ArrayList<>();
-
-    public void addAuthorFirstLastName(Authors firstLastName) {
-        authors.add(firstLastName);
-    }
-
-    public  List<Authors> getAuthorsFirstLastName(){
-        return authors;
     }
 
 }

@@ -399,7 +399,9 @@ public class StoreBookTest {
 
     @Test
     public void firstLastName_whenThreeRecordExists_containsThreeRecords() {
-       StoreBook subject = new StoreBook();
+       // StoreBook subject = new StoreBook();
+        Authors subject = new Authors();
+
         subject.addAuthorFirstLastName(buildAuthor("Ion", "Tsay"));
         subject.addAuthorFirstLastName(buildAuthor("Tom", "Bayts"));
         subject.addAuthorFirstLastName(buildAuthor("Kim", "Lee"));
@@ -414,8 +416,6 @@ public class StoreBookTest {
         assertThat(actual.get(1).lastName.equals("Bayts"));
         assertThat(actual.get(2).firstName.equals("Kim"));
         assertThat(actual.get(2).lastName.equals("Lee"));
-
-
     }
 
     private Authors buildAuthor(String firstName, String lastName) {
