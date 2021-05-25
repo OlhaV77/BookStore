@@ -1,15 +1,19 @@
-import java.util.Comparator;
+import java.util.Date;
+import java.util.List;
 
-public class Book  {
+public class Book {
     String name;
     double price;
-    String author;
+    List <Author> authors;
+    ISBN ISBN_10; // Mandatory!
+    Date datePublished; // Mandatory
 
-    public Book(String  name, String author, double price){
+    // Book can contain many authors
+    public Book(String name, List<Author> authors, double price, Date datePublished, ISBN isbn) {
         this.name = name;
-        this.author = author;
+        this.authors = authors;
         this.price = price;
+        this.datePublished = datePublished;
+        this.ISBN_10 = isbn;
     }
-
-
 }

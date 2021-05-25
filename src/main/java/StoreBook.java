@@ -17,19 +17,30 @@ public class StoreBook {
     }
 
     public List<Book> findByPrice(double price) {
-        List<Book> result = books.stream()
-                .filter(element -> element.price == price)
-                .collect(Collectors.toList());
+        List<Book> result = books.stream().filter(element -> element.price == price).collect(Collectors.toList());
         return result;
     }
 
     // TODO: re-write for-loop using index
-    public List<Book> findByAuthor(String author) {
+    public List<Book> findByAuthorLastName(String author) {
         List<Book> result = new ArrayList<>();
         for (int i = 0; i < books.size(); i++) {
-            if (books.get(i).author.equals(author)) {
-                result.add(books.get(i));
+            for (int j = 0; j < books.get(i).authors.size(); j++) {
+                if (books.get(i).authors.get(j).lastName.equals(author)) {
+                    result.add(books.get(i));
+                }
             }
+        }
+        return result;
+    }
+
+    public List<Book> findByAuthorFirstName(String author) {
+        List<Book> result = new ArrayList<>();
+        for (Book book : books) {
+            for (Author someAuthor : book.authors)
+                if (someAuthor.firstName.equals(author)) {
+                    result.add(book);
+                }
         }
         return result;
     }
@@ -67,19 +78,24 @@ public class StoreBook {
         return books;
     }
 
-    public List<Book> sortByAuthor() {
-        List<Book> result = books.stream()
-                .sorted((x, y) ->
-                        x.author.compareTo(y.author))
-                .collect(Collectors.toList());
-        return result;
+    public List<Book> sortByAuthorLastName() {
+        for(int i = 0; i < books.size(); i++) {
+            for (int j = 0; j < books.get(i).authors.size(); j++) {
+
+                List<Book> result = books.stream().sorted(Comparator.comparing(x -> x.authors.get(j).lastName))
+                        .collect(Collectors.toList());
+
+                return result;
+            }
+        }
+        return null;
     }
 
     public List<Book> sortByName() {
-        List<Book> result = books.stream()
-                .sorted((x, y) -> x.name.compareTo(y.name))
+        return books.stream()
+                .sorted(Comparator.comparing(x -> x.name))
                 .collect(Collectors.toList());
-        return result;
     }
+
 
 }
