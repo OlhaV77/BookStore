@@ -1,6 +1,3 @@
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class ISBN {
     String isbn;

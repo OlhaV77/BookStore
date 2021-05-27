@@ -58,12 +58,6 @@ public class StoreBook {
     // TODO: implement sort with comparator interface
     public List<Book> sortByPriceFromLowToHigh() {
         Collections.sort(books, new PriceFromLowtoHighComparator());
-
-        //  books.sort((x, y) -> {
-        //     if (x.price == y.price)
-        //         return 0;
-        //     return x.price < y.price ? -1 : 1;
-        // });
         return books;
     }
 
@@ -79,13 +73,11 @@ public class StoreBook {
     }
 
     public List<Book> sortByAuthorLastName() {
-        for(int i = 0; i < books.size(); i++) {
-            for (int j = 0; j < books.get(i).authors.size(); j++) {
+        for(Book book : books) {
+            for (int j = 0; j < book.authors.size(); j++) {
 
-                List<Book> result = books.stream().sorted(Comparator.comparing(x -> x.authors.get(j).lastName))
+               return books.stream().sorted(Comparator.comparing(x -> x.authors.get(j).lastName))
                         .collect(Collectors.toList());
-
-                return result;
             }
         }
         return null;
@@ -96,6 +88,4 @@ public class StoreBook {
                 .sorted(Comparator.comparing(x -> x.name))
                 .collect(Collectors.toList());
     }
-
-
 }
