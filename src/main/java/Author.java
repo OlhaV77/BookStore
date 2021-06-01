@@ -1,12 +1,15 @@
+import java.util.Date;
 import java.util.List;
 
-public class Author {
-    public String firstName;
-    public String lastName;
+public class Author  {
+    String firstName;
+    String lastName;
 
     public Author(String firstName, String lastName) {
+        super();
         this.firstName = firstName;
         this.lastName = lastName;
     }
+
 
 }
