@@ -1675,19 +1675,23 @@ public class BookStoreTest {
 
         assertThat(actual).hasSize(2);
 
+        Magazine actualFirstMagazine = (Magazine) actual.get(0);
+
         assertThat(actual.get(0).name).isEqualTo("Cosmo");
         assertThat(actual.get(0).price).isEqualTo(3.55);
         assertThat(actual.get(0).datePublished.getYear()).isEqualTo(2021);
         assertThat(actual.get(0).datePublished.getMonth()).isEqualTo(4);
         assertThat(actual.get(0).datePublished.getDate()).isEqualTo(25);
+        assertThat(actualFirstMagazine.magazineNumber).isEqualTo(4589);
+
+        Magazine actualSecondMagazine = (Magazine) actual.get(1);
 
         assertThat(actual.get(1).name).isEqualTo("People");
         assertThat(actual.get(1).price).isEqualTo(4.0);
         assertThat(actual.get(1).datePublished.getYear()).isEqualTo(2021);
         assertThat(actual.get(1).datePublished.getMonth()).isEqualTo(5);
         assertThat(actual.get(1).datePublished.getDate()).isEqualTo(1);
-
-
+        assertThat(actualSecondMagazine.magazineNumber).isEqualTo(3476);
     }
 
     @Test

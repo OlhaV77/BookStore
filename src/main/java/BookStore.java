@@ -18,7 +18,10 @@ public class BookStore {
     }
 
     public List<ReadingMaterial> findByPrice(double price) {
-        List<ReadingMaterial> result = items.stream().filter(element -> element.price == price).collect(Collectors.toList());
+        List<ReadingMaterial> result = items.stream()
+                .filter(element ->
+                        element.price == price)
+                .collect(Collectors.toList());
         return result;
     }
 
@@ -45,27 +48,27 @@ public class BookStore {
     public List<ReadingMaterial> findByAuthorFirstName(String author) {
         List<ReadingMaterial> result = new ArrayList<>();
 
-         List<Book> books = items.stream().
-                filter(readingMaterial -> readingMaterial instanceof Book)
-                .map(book -> (Book) book)
-               .collect(Collectors.toList());
+        // List<Book> books = items.stream().
+        //         filter(readingMaterial -> readingMaterial instanceof Book)
+        //         .map(book -> (Book) book)
+        //        .collect(Collectors.toList());
 
-       // List<Book> books = new ArrayList<>();
-      // Book book = (Book) items;
-       // for (ReadingMaterial read : items) {
-        //    if (read.equals(book)) {
-        //        books.add(book);
-        //    }
-       // }
-
-                for (Book book : books) {
-                    for (Author someAuthor : book.authors) {
-                        if (someAuthor.firstName.equals(author)) {
-                            result.add(book);
-                        }
+        List<Book> books = new ArrayList<>();
+        for(ReadingMaterial read : items) {
+            if (read instanceof Book) {
+                Book book1 = (Book) read;
+                books.add(book1);
             }
         }
-        return result;
+
+            for (Book book : books) {
+                for (Author someAuthor : book.authors) {
+                    if (someAuthor.firstName.equals(author)) {
+                        result.add(book);
+                }
+            }
+        }
+            return result;
     }
 
     public List<ReadingMaterial> findByName(String name) {
