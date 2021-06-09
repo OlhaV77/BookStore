@@ -12,6 +12,16 @@ public class Book extends ReadingMaterial {
         this.ISBN_10 = isbn;
     }
 
+    @Override
+    public String toString() {
+        return name + " "
+                + price + " "
+                + datePublished + " "
+                + authors + " "
+                + ISBN_10;
+    }
+
+
 }
 
 

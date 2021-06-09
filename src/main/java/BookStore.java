@@ -3,7 +3,7 @@ import java.util.stream.Collectors;
 
 public class BookStore {
 
-    private List<ReadingMaterial> items = new ArrayList<>();
+    public List<ReadingMaterial> items = new ArrayList<>();
 
     public void add(ReadingMaterial book) {
         items.add(book);

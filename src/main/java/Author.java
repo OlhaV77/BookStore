@@ -1,5 +1,3 @@
-//import java.util.Date;
-import java.util.List;
 
 public class Author  {
     String firstName;
@@ -12,4 +10,9 @@ public class Author  {
     }
 
 
+    @Override
+    public String toString() {
+        return firstName + " "
+                + lastName;
+    }
 }

@@ -11,4 +11,9 @@ public class ISBN {
 
     }
 
+    @Override
+    public String toString() {
+        return isbn + " "
+                + number;
+    }
 }

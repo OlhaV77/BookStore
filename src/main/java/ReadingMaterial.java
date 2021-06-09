@@ -11,6 +11,4 @@ public class ReadingMaterial {
         this.datePublished = datePublished;
     }
 
-    public ReadingMaterial() {
-    }
 }
