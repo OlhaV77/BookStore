@@ -14,11 +14,18 @@ public class Book extends ReadingMaterial {
 
     @Override
     public String toString() {
-        return name + " "
-                + price + " "
-                + datePublished + " "
-                + authors + " "
-                + ISBN_10;
+        System.out.println();
+        for (Author author : authors) {
+            System.out.print("Author: " + author.firstName + " ");
+            System.out.println(author.lastName + ", ");
+        }
+        return "Name: " + name + "\n" +
+                "Price: " + price + "\n"
+                + "Data Published: " + datePublished.getYear() + ", "
+                + datePublished.getMonth() + ", "
+                + datePublished.getDate() + "\n"
+                + "ISBN-NUMBER: " + ISBN_10.isbn + " "
+                + ISBN_10.number;
     }
 
 

@@ -22,7 +22,7 @@ public class BookStoreTest {
                 5.55,
                 date,
                 authors,
-                new ISBN("ISSN", 0027 - 9633)));
+                new ISBN("ISSN", "0027-9633")));
     }
 
     @Test
@@ -39,7 +39,7 @@ public class BookStoreTest {
                 2.99,
                 date,
                 authorsForFirstBook,
-                new ISBN("ISBN", 2108 - 9990))
+                new ISBN("ISBN", "2108-9990"))
         );
 
         ArrayList<Author> authorsForSecondBook = new ArrayList<>();
@@ -51,7 +51,7 @@ public class BookStoreTest {
                 8.55,
                 data,
                 authorsForSecondBook,
-                new ISBN("ISBN", 3297 - 4564))
+                new ISBN("ISBN", "3297-4564"))
         );
 
         List<ReadingMaterial> actual = subject.getAllItems();
@@ -70,7 +70,7 @@ public class BookStoreTest {
         assertThat(actualFirstBook.authors.get(1).firstName).isEqualTo("Lee");
         assertThat(actualFirstBook.authors.get(1).lastName).isEqualTo("Verg");
         assertThat(actualFirstBook.ISBN_10.isbn).isEqualTo("ISBN");
-        assertThat(actualFirstBook.ISBN_10.number).isEqualTo(2108 - 9990);
+        assertThat(actualFirstBook.ISBN_10.number).isEqualTo("2108-9990");
 
         Book actualSecondBook = (Book) actual.get(1);
 
@@ -82,7 +82,7 @@ public class BookStoreTest {
         assertThat(actualSecondBook.authors.get(0).firstName).isEqualTo("Issac");
         assertThat(actualSecondBook.authors.get(0).lastName).isEqualTo("Newton");
         assertThat(actualSecondBook.ISBN_10.isbn).isEqualTo("ISBN");
-        assertThat(actualSecondBook.ISBN_10.number).isEqualTo(3297 - 4564);
+        assertThat(actualSecondBook.ISBN_10.number).isEqualTo("3297-4564");
     }
 
     @Test
@@ -98,7 +98,7 @@ public class BookStoreTest {
                 5.55,
                 date,
                 authorsForFirstBook,
-                new ISBN("ISBN", 2108 - 9990));
+                new ISBN("ISBN", "2108-9990"));
 
         subject.add(book);
 
@@ -123,7 +123,7 @@ public class BookStoreTest {
                 5.55,
                 date1,
                 authorsForFirstBook,
-                new ISBN("ISBN", 2108 - 9990)
+                new ISBN("ISBN", "2108-9990")
         );
         subject.add(book);
 
@@ -140,7 +140,7 @@ public class BookStoreTest {
                 8.67,
                 date,
                 authorsForSecondBook,
-                new ISBN("ISBN", 3297 - 4564)
+                new ISBN("ISBN", "3297-4564")
         );
         subject.add(book2);
 
@@ -165,7 +165,7 @@ public class BookStoreTest {
         assertThat(actualFirstBook.authors.get(2).firstName).isEqualTo("Leo");
         assertThat(actualFirstBook.authors.get(2).lastName).isEqualTo("Tolstoy");
         assertThat(actualFirstBook.ISBN_10.isbn).isEqualTo("ISBN");
-        assertThat(actualFirstBook.ISBN_10.number).isEqualTo(3297 - 4564);
+        assertThat(actualFirstBook.ISBN_10.number).isEqualTo("3297-4564");
     }
 
     @Test
@@ -182,7 +182,7 @@ public class BookStoreTest {
                 5.55,
                 date1,
                 firstBookAuthor,
-                new ISBN("ISBN", 2108 - 9990));
+                new ISBN("ISBN", "2108-9990"));
         subject.add(book1);
 
         ArrayList<Author> secondBookAuthor = new ArrayList<>();
@@ -194,7 +194,7 @@ public class BookStoreTest {
                 8.67,
                 date2,
                 secondBookAuthor,
-                new ISBN("ISBN", 3297 - 4564));
+                new ISBN("ISBN", "3297-4564"));
         subject.add(book2);
 
         ArrayList<Author> therdBookAuthor = new ArrayList<>();
@@ -206,7 +206,7 @@ public class BookStoreTest {
                 10.55,
                 date3,
                 therdBookAuthor,
-                new ISBN("ISBN", 6166 - 2345));
+                new ISBN("ISBN", "6166-2345"));
         subject.add(book3);
 
         subject.remove(book2);
@@ -228,7 +228,7 @@ public class BookStoreTest {
         assertThat(actualFirstBook.authors.get(1).firstName).isEqualTo("Oscar");
         assertThat(actualFirstBook.authors.get(1).lastName).isEqualTo("Wild");
         assertThat(actualFirstBook.ISBN_10.isbn).isEqualTo("ISBN");
-        assertThat(actualFirstBook.ISBN_10.number).isEqualTo(2108 - 9990);
+        assertThat(actualFirstBook.ISBN_10.number).isEqualTo("2108-9990");
     }
 
     @Test
@@ -244,7 +244,7 @@ public class BookStoreTest {
                 5.55,
                 date1,
                 firstAuthorOfTheBook,
-                new ISBN("ISBN", 2108 - 9990))
+                new ISBN("ISBN", "2108-9990"))
         );
 
         ArrayList<Author> secondAuthorOfTheBook = new ArrayList<>();
@@ -257,7 +257,7 @@ public class BookStoreTest {
                 8.67,
                 date2,
                 secondAuthorOfTheBook,
-                new ISBN("ISBN", 3297 - 4564))
+                new ISBN("ISBN", "3297-4564"))
         );
 
         ArrayList<Author> thirdAuthorOfTheBook = new ArrayList<>();
@@ -271,7 +271,7 @@ public class BookStoreTest {
                 10.55,
                 date3,
                 thirdAuthorOfTheBook,
-                new ISBN("ISBN", 6166 - 2345))
+                new ISBN("ISBN", "6166-2345"))
         );
 
         List<ReadingMaterial> actual = subject.findByPrice(5.55);
@@ -288,7 +288,7 @@ public class BookStoreTest {
         assertThat(actualFirstBook.authors.get(0).firstName).isEqualTo("Jack");
         assertThat(actualFirstBook.authors.get(0).lastName).isEqualTo("London");
         assertThat(actualFirstBook.ISBN_10.isbn).isEqualTo("ISBN");
-        assertThat(actualFirstBook.ISBN_10.number).isEqualTo(2108 - 9990);
+        assertThat(actualFirstBook.ISBN_10.number).isEqualTo("2108-9990");
     }
 
     @Test
@@ -304,7 +304,7 @@ public class BookStoreTest {
                 5.55,
                 date1,
                 firstAuthorOfTheBook,
-                new ISBN("ISBN", 2108 - 9990))
+                new ISBN("ISBN", "2108-9990"))
         );
 
         ArrayList<Author> secondAuthorOfTheBook = new ArrayList<>();
@@ -317,7 +317,7 @@ public class BookStoreTest {
                 8.67,
                 date2,
                 secondAuthorOfTheBook,
-                new ISBN("ISBN", 3297 - 4564))
+                new ISBN("ISBN", "3297-4564"))
         );
 
         ArrayList<Author> thirdAuthorOfTheBook = new ArrayList<>();
@@ -331,7 +331,7 @@ public class BookStoreTest {
                 10.55,
                 date3,
                 thirdAuthorOfTheBook,
-                new ISBN("ISBN", 6166 - 2345))
+                new ISBN("ISBN", "6166-2345"))
         );
 
         ArrayList<Author> fourthAuthorOfTheBook = new ArrayList<>();
@@ -345,7 +345,7 @@ public class BookStoreTest {
                 5.55,
                 date4,
                 fourthAuthorOfTheBook,
-                new ISBN("ISBN", 6166 - 2345))
+                new ISBN("ISBN", "6166-2345"))
         );
 
         List<ReadingMaterial> actual = subject.findByPrice(5.55);
@@ -362,7 +362,7 @@ public class BookStoreTest {
         assertThat(actualFirstBook.authors.get(0).firstName).isEqualTo("Jack");
         assertThat(actualFirstBook.authors.get(0).lastName).isEqualTo("London");
         assertThat(actualFirstBook.ISBN_10.isbn).isEqualTo("ISBN");
-        assertThat(actualFirstBook.ISBN_10.number).isEqualTo(2108 - 9990);
+        assertThat(actualFirstBook.ISBN_10.number).isEqualTo("2108-9990");
 
         Book actualSecondBook = (Book) actual.get(1);
 
@@ -378,7 +378,7 @@ public class BookStoreTest {
         assertThat(actualSecondBook.authors.get(2).firstName).isEqualTo("William");
         assertThat(actualSecondBook.authors.get(2).lastName).isEqualTo("Seneca");
         assertThat(actualSecondBook.ISBN_10.isbn).isEqualTo("ISBN");
-        assertThat(actualSecondBook.ISBN_10.number).isEqualTo(6166 - 2345);
+        assertThat(actualSecondBook.ISBN_10.number).isEqualTo("6166-2345");
     }
 
     @Test
@@ -394,7 +394,7 @@ public class BookStoreTest {
                 5.55,
                 date1,
                 firstAuthorOfTheBook,
-                new ISBN("ISBN", 2108 - 9990))
+                new ISBN("ISBN", "2108-9990"))
         );
 
         ArrayList<Author> secondAuthorOfTheBook = new ArrayList<>();
@@ -407,7 +407,7 @@ public class BookStoreTest {
                 8.67,
                 date2,
                 secondAuthorOfTheBook,
-                new ISBN("ISBN", 3297 - 4564))
+                new ISBN("ISBN", "3297-4564"))
         );
 
         ArrayList<Author> thirdAuthorOfTheBook = new ArrayList<>();
@@ -422,7 +422,7 @@ public class BookStoreTest {
                 date3,
                 thirdAuthorOfTheBook,
 
-                new ISBN("ISBN", 6166 - 2345))
+                new ISBN("ISBN", "6166-2345"))
         );
 
         ArrayList<Author> fourthAuthorOfTheBook = new ArrayList<>();
@@ -437,7 +437,7 @@ public class BookStoreTest {
                 date4,
                 fourthAuthorOfTheBook,
 
-                new ISBN("ISBN", 6166 - 2345))
+                new ISBN("ISBN", "6166-2345"))
         );
 
         List<ReadingMaterial> actual = subject.findByPrice(5.55);
@@ -453,7 +453,7 @@ public class BookStoreTest {
         assertThat(actualFirstBook.authors.get(0).firstName).isEqualTo("Nikola");
         assertThat(actualFirstBook.authors.get(0).lastName).isEqualTo("Tesla");
         assertThat(actualFirstBook.ISBN_10.isbn).isEqualTo("ISBN");
-        assertThat(actualFirstBook.ISBN_10.number).isEqualTo(2108 - 9990);
+        assertThat(actualFirstBook.ISBN_10.number).isEqualTo("2108-9990");
 
         Book actualSecondBook = (Book) actual.get(1);
         assertThat(actualSecondBook.name).isEqualTo("Art of war");
@@ -468,7 +468,7 @@ public class BookStoreTest {
         assertThat(actualSecondBook.authors.get(2).firstName).isEqualTo("William");
         assertThat(actualSecondBook.authors.get(2).lastName).isEqualTo("Seneca");
         assertThat(actualSecondBook.ISBN_10.isbn).isEqualTo("ISBN");
-        assertThat(actualSecondBook.ISBN_10.number).isEqualTo(6166 - 2345);
+        assertThat(actualSecondBook.ISBN_10.number).isEqualTo("6166-2345");
     }
 
     @Test
@@ -485,7 +485,7 @@ public class BookStoreTest {
                 date1,
                 firstAuthorOfTheBook,
 
-                new ISBN("ISBN", 2108 - 9990))
+                new ISBN("ISBN", "2108-9990"))
         );
 
         ArrayList<Author> secondAuthorOfTheBook = new ArrayList<>();
@@ -499,7 +499,7 @@ public class BookStoreTest {
                 date2,
                 secondAuthorOfTheBook,
 
-                new ISBN("ISBN", 3297 - 4564))
+                new ISBN("ISBN", "3297-4564"))
         );
 
         ArrayList<Author> thirdAuthorOfTheBook = new ArrayList<>();
@@ -514,7 +514,7 @@ public class BookStoreTest {
                 date3,
                 thirdAuthorOfTheBook,
 
-                new ISBN("ISBN", 6166 - 2345))
+                new ISBN("ISBN", "6166-2345"))
         );
 
         List<ReadingMaterial> actual = subject.findByPrice(10.55);
@@ -535,7 +535,7 @@ public class BookStoreTest {
         assertThat(actualFirstBook.authors.get(2).firstName).isEqualTo("William");
         assertThat(actualFirstBook.authors.get(2).lastName).isEqualTo("Seneca");
         assertThat(actualFirstBook.ISBN_10.isbn).isEqualTo("ISBN");
-        assertThat(actualFirstBook.ISBN_10.number).isEqualTo(6166 - 2345);
+        assertThat(actualFirstBook.ISBN_10.number).isEqualTo("6166-2345");
     }
 
     @Test
@@ -553,7 +553,7 @@ public class BookStoreTest {
                 date1,
                 firstAuthorOfTheBook,
 
-                new ISBN("ISBN", 2108 - 9990))
+                new ISBN("ISBN", "2108-9990"))
         );
 
         ArrayList<Author> secondAuthorOfTheBook = new ArrayList<>();
@@ -567,7 +567,7 @@ public class BookStoreTest {
                 date2,
                 secondAuthorOfTheBook,
 
-                new ISBN("ISBN", 3297 - 4564))
+                new ISBN("ISBN", "3297-4564"))
         );
 
         ArrayList<Author> thirdAuthorOfTheBook = new ArrayList<>();
@@ -582,7 +582,7 @@ public class BookStoreTest {
                 date3,
                 thirdAuthorOfTheBook,
 
-                new ISBN("ISBN", 6166 - 2345))
+                new ISBN("ISBN", "6166-2345"))
         );
 
         List<ReadingMaterial> actual = subject.findByAuthorLastName("Ervin");
@@ -599,7 +599,7 @@ public class BookStoreTest {
         assertThat(actualFirstBook.authors.get(0).firstName).isEqualTo("Robert");
         assertThat(actualFirstBook.authors.get(0).lastName).isEqualTo("Ervin");
         assertThat(actualFirstBook.ISBN_10.isbn).isEqualTo("ISBN");
-        assertThat(actualFirstBook.ISBN_10.number).isEqualTo(2108 - 9990);
+        assertThat(actualFirstBook.ISBN_10.number).isEqualTo("2108-9990");
     }
 
 
@@ -617,7 +617,7 @@ public class BookStoreTest {
                 date1,
                 firstAuthorOfTheBook,
 
-                new ISBN("ISBN", 2108 - 9990))
+                new ISBN("ISBN", "2108-9990"))
         );
 
         ArrayList<Author> secondAuthorOfTheBook = new ArrayList<>();
@@ -631,7 +631,7 @@ public class BookStoreTest {
                 date2,
                 secondAuthorOfTheBook,
 
-                new ISBN("ISBN", 3297 - 4564))
+                new ISBN("ISBN", "3297-4564"))
         );
 
         ArrayList<Author> thirdAuthorOfTheBook = new ArrayList<>();
@@ -646,7 +646,7 @@ public class BookStoreTest {
                 date3,
                 thirdAuthorOfTheBook,
 
-                new ISBN("ISBN", 6166 - 2345))
+                new ISBN("ISBN", "6166-2345"))
         );
 
         ArrayList<Author> fourthAuthorOfTheBook = new ArrayList<>();
@@ -661,7 +661,7 @@ public class BookStoreTest {
                 date4,
                 fourthAuthorOfTheBook,
 
-                new ISBN("ISBN", 6166 - 2345))
+                new ISBN("ISBN", "6166-2345"))
         );
 
         ArrayList<Author> fifthAuthorOfTheBook = new ArrayList<>();
@@ -674,7 +674,7 @@ public class BookStoreTest {
                 date5,
                 fifthAuthorOfTheBook,
 
-                new ISBN("ISBN", 6166 - 2035))
+                new ISBN("ISBN", "6166-2035"))
         );
 
         List<ReadingMaterial> actual = subject.findByAuthorLastName("Tsu");
@@ -693,7 +693,7 @@ public class BookStoreTest {
         assertThat(actualFirstBook.authors.get(1).firstName).isEqualTo("Robert");
         assertThat(actualFirstBook.authors.get(1).lastName).isEqualTo("Howard");
         assertThat(actualFirstBook.ISBN_10.isbn).isEqualTo("ISBN");
-        assertThat(actualFirstBook.ISBN_10.number).isEqualTo(3297 - 4564);
+        assertThat(actualFirstBook.ISBN_10.number).isEqualTo("3297-4564");
 
         Book actualSecondBook = (Book) actual.get(1);
 
@@ -705,7 +705,7 @@ public class BookStoreTest {
         assertThat(actualSecondBook .authors.get(0).firstName).isEqualTo("Jeni");
         assertThat(actualSecondBook .authors.get(0).lastName).isEqualTo("Tsu");
         assertThat(actualSecondBook .ISBN_10.isbn).isEqualTo("ISBN");
-        assertThat(actualSecondBook .ISBN_10.number).isEqualTo(6166 - 2035);
+        assertThat(actualSecondBook .ISBN_10.number).isEqualTo("6166-2035");
 
     }
 
@@ -723,7 +723,7 @@ public class BookStoreTest {
                 date1,
                 firstAuthorOfTheBook,
 
-                new ISBN("ISBN", 2108 - 9990))
+                new ISBN("ISBN", "2108-9990"))
         );
 
         ArrayList<Author> secondAuthorOfTheBook = new ArrayList<>();
@@ -737,7 +737,7 @@ public class BookStoreTest {
                 date2,
                 secondAuthorOfTheBook,
 
-                new ISBN("ISBN", 3297 - 4564))
+                new ISBN("ISBN", "3297-4564"))
         );
 
         ArrayList<Author> thirdAuthorOfTheBook = new ArrayList<>();
@@ -752,7 +752,7 @@ public class BookStoreTest {
                 date3,
                 thirdAuthorOfTheBook,
 
-                new ISBN("ISBN", 6166 - 2345))
+                new ISBN("ISBN", "6166-2345"))
         );
 
         ArrayList<Author> fourthAuthorOfTheBook = new ArrayList<>();
@@ -767,7 +767,7 @@ public class BookStoreTest {
                 date4,
                 fourthAuthorOfTheBook,
 
-                new ISBN("ISBN", 6166 - 2345))
+                new ISBN("ISBN", "6166-2345"))
         );
 
         ArrayList<Author> fifthAuthorOfTheBook = new ArrayList<>();
@@ -780,7 +780,7 @@ public class BookStoreTest {
                 date5,
                 fifthAuthorOfTheBook,
 
-                new ISBN("ISBN", 6166 - 2035))
+                new ISBN("ISBN", "6166-2035"))
         );
 
         List<ReadingMaterial> actual = subject.findByAuthorLastName("Tsu");
@@ -799,7 +799,7 @@ public class BookStoreTest {
         assertThat(actualFirstBook.authors.get(1).firstName).isEqualTo("Robert");
         assertThat(actualFirstBook.authors.get(1).lastName).isEqualTo("Howard");
         assertThat(actualFirstBook.ISBN_10.isbn).isEqualTo("ISBN");
-        assertThat(actualFirstBook.ISBN_10.number).isEqualTo(3297 - 4564);
+        assertThat(actualFirstBook.ISBN_10.number).isEqualTo("3297-4564");
 
         Book actualSecondBook = (Book) actual.get(1);
 
@@ -811,7 +811,7 @@ public class BookStoreTest {
         assertThat(actualSecondBook.authors.get(0).firstName).isEqualTo("Jeni");
         assertThat(actualSecondBook.authors.get(0).lastName).isEqualTo("Tsu");
         assertThat(actualSecondBook.ISBN_10.isbn).isEqualTo("ISBN");
-        assertThat(actualSecondBook.ISBN_10.number).isEqualTo(6166 - 2035);
+        assertThat(actualSecondBook.ISBN_10.number).isEqualTo("6166-2035");
     }
 
     @Test
@@ -826,7 +826,7 @@ public class BookStoreTest {
                 new Date(),
                 firstAuthorOfTheBook,
 
-                new ISBN("ISBN", 2108 - 9990))
+                new ISBN("ISBN", "2108-9990"))
         );
 
         ArrayList<Author> secondAuthorOfTheBook = new ArrayList<>();
@@ -840,7 +840,7 @@ public class BookStoreTest {
                 date2,
                 secondAuthorOfTheBook,
 
-                new ISBN("ISBN", 3297 - 4564))
+                new ISBN("ISBN", "3297-4564"))
         );
 
         ArrayList<Author> thirdAuthorOfTheBook = new ArrayList<>();
@@ -855,7 +855,7 @@ public class BookStoreTest {
                 date3,
                 thirdAuthorOfTheBook,
 
-                new ISBN("ISBN", 6166 - 2345))
+                new ISBN("ISBN", "6166-2345"))
         );
 
         ArrayList<Author> fourthAuthorOfTheBook = new ArrayList<>();
@@ -870,7 +870,7 @@ public class BookStoreTest {
                 date4,
                 fourthAuthorOfTheBook,
 
-                new ISBN("ISBN", 6166 - 2345))
+                new ISBN("ISBN", "6166-2345"))
         );
 
         ArrayList<Author> fifthAuthorOfTheBook = new ArrayList<>();
@@ -883,7 +883,7 @@ public class BookStoreTest {
                 date5,
                 fifthAuthorOfTheBook,
 
-                new ISBN("ISBN", 6166 - 2035))
+                new ISBN("ISBN", "6166-2035"))
         );
 
         List<ReadingMaterial> actual = subject.findByAuthorFirstName("Jeni");
@@ -902,7 +902,7 @@ public class BookStoreTest {
         assertThat(actualFirstBook.authors.get(1).firstName).isEqualTo("Jeni");
         assertThat(actualFirstBook.authors.get(1).lastName).isEqualTo("Howard");
         assertThat(actualFirstBook.ISBN_10.isbn).isEqualTo("ISBN");
-        assertThat(actualFirstBook.ISBN_10.number).isEqualTo(3297 - 4564);
+        assertThat(actualFirstBook.ISBN_10.number).isEqualTo("3297-4564");
 
         Book actualSecondBook = (Book) actual.get(1);
 
@@ -918,7 +918,7 @@ public class BookStoreTest {
         assertThat(actualSecondBook.authors.get(2).firstName).isEqualTo("William");
         assertThat(actualSecondBook.authors.get(2).lastName).isEqualTo("Seneca");
         assertThat(actualSecondBook.ISBN_10.isbn).isEqualTo("ISBN");
-        assertThat(actualSecondBook.ISBN_10.number).isEqualTo(6166 - 2345);
+        assertThat(actualSecondBook.ISBN_10.number).isEqualTo("6166-2345");
 
         Book actualThirdBook = (Book) actual.get(2);
 
@@ -930,7 +930,7 @@ public class BookStoreTest {
         assertThat(actualThirdBook.authors.get(0).firstName).isEqualTo("Jeni");
         assertThat(actualThirdBook.authors.get(0).lastName).isEqualTo("Tsu");
         assertThat(actualThirdBook.ISBN_10.isbn).isEqualTo("ISBN");
-        assertThat(actualThirdBook.ISBN_10.number).isEqualTo(6166 - 2035);
+        assertThat(actualThirdBook.ISBN_10.number).isEqualTo("6166-2035");
     }
 
     @Test
@@ -947,7 +947,7 @@ public class BookStoreTest {
                 date1,
                 firstAuthorOfTheBook,
 
-                new ISBN("ISBN", 2108 - 9990))
+                new ISBN("ISBN", "2108-9990"))
         );
 
         ArrayList<Author> secondAuthorOfTheBook = new ArrayList<>();
@@ -959,7 +959,7 @@ public class BookStoreTest {
                 date2,
                 secondAuthorOfTheBook,
 
-                new ISBN("ISBN", 3297 - 4564))
+                new ISBN("ISBN", "3297-4564"))
         );
 
         ArrayList<Author> thirdAuthorOfTheBook = new ArrayList<>();
@@ -974,7 +974,7 @@ public class BookStoreTest {
                 date3,
                 thirdAuthorOfTheBook,
 
-                new ISBN("ISBN", 6166 - 2345))
+                new ISBN("ISBN", "6166-2345"))
         );
 
 
@@ -990,7 +990,7 @@ public class BookStoreTest {
                 date4,
                 fourthAuthorOfTheBook,
 
-                new ISBN("ISBN", 6166 - 2345))
+                new ISBN("ISBN", "6166-2345"))
         );
 
         ArrayList<Author> fifthAuthorOfTheBook = new ArrayList<>();
@@ -1003,7 +1003,7 @@ public class BookStoreTest {
                 date5,
                 fifthAuthorOfTheBook,
 
-                new ISBN("ISBN", 6166 - 2035))
+                new ISBN("ISBN", "6166-2035"))
         );
 
         List<ReadingMaterial> actual = subject.findByName("Art");
@@ -1018,7 +1018,7 @@ public class BookStoreTest {
         assertThat(actualFirstBook.datePublished.getMonth()).isEqualTo(6);
         assertThat(actualFirstBook.datePublished.getDate()).isEqualTo(9);
         assertThat(actualFirstBook.ISBN_10.isbn).isEqualTo("ISBN");
-        assertThat(actualFirstBook.ISBN_10.number).isEqualTo(3297 - 4564);
+        assertThat(actualFirstBook.ISBN_10.number).isEqualTo("3297-4564");
 
         Book actualSecondBook = (Book) actual.get(1);
 
@@ -1030,7 +1030,7 @@ public class BookStoreTest {
         assertThat(actualSecondBook.authors.get(0).firstName).isEqualTo("Jeni");
         assertThat(actualSecondBook.authors.get(0).lastName).isEqualTo("Tsu");
         assertThat(actualSecondBook.ISBN_10.isbn).isEqualTo("ISBN");
-        assertThat(actualSecondBook.ISBN_10.number).isEqualTo(6166 - 2035);
+        assertThat(actualSecondBook.ISBN_10.number).isEqualTo("6166-2035");
     }
 
     @Test
@@ -1047,7 +1047,7 @@ public class BookStoreTest {
                 date1,
                 firstAuthorOfTheBook,
 
-                new ISBN("ISBN", 2108 - 9990))
+                new ISBN("ISBN", "2108-9990"))
         );
 
         ArrayList<Author> secondAuthorOfTheBook = new ArrayList<>();
@@ -1061,7 +1061,7 @@ public class BookStoreTest {
                 date2,
                 secondAuthorOfTheBook,
 
-                new ISBN("ISBN", 3297 - 4564))
+                new ISBN("ISBN", "3297-4564"))
         );
 
         ArrayList<Author> thirdAuthorOfTheBook = new ArrayList<>();
@@ -1076,7 +1076,7 @@ public class BookStoreTest {
                 date3,
                 thirdAuthorOfTheBook,
 
-                new ISBN("ISBN", 6166 - 2345))
+                new ISBN("ISBN", "6166-2345"))
         );
 
         ArrayList<Author> fourthAuthorOfTheBook = new ArrayList<>();
@@ -1090,7 +1090,7 @@ public class BookStoreTest {
                 date4,
                 fourthAuthorOfTheBook,
 
-                new ISBN("ISBN", 6166 - 2345))
+                new ISBN("ISBN", "6166-2345"))
         );
 
         ArrayList<Author> fifthAuthorOfTheBook = new ArrayList<>();
@@ -1103,7 +1103,7 @@ public class BookStoreTest {
                 date5,
                 fifthAuthorOfTheBook,
 
-                new ISBN("ISBN", 6166 - 2035))
+                new ISBN("ISBN", "6166-2035"))
         );
 
         List<ReadingMaterial> actual = subject.sortByAuthorLastName();
@@ -1124,7 +1124,7 @@ public class BookStoreTest {
         assertThat(actualFirstBook.authors.get(2).firstName).isEqualTo("William");
         assertThat(actualFirstBook.authors.get(2).lastName).isEqualTo("Soneca");
         assertThat(actualFirstBook.ISBN_10.isbn).isEqualTo("ISBN");
-        assertThat(actualFirstBook.ISBN_10.number).isEqualTo(6166 - 2345);
+        assertThat(actualFirstBook.ISBN_10.number).isEqualTo("6166-2345");
 
         Book actualSecondBook = (Book) actual.get(1);
 
@@ -1136,7 +1136,7 @@ public class BookStoreTest {
         assertThat(actualSecondBook.authors.get(0).firstName).isEqualTo("Robert");
         assertThat(actualSecondBook.authors.get(0).lastName).isEqualTo("Ervin");
         assertThat(actualSecondBook.ISBN_10.isbn).isEqualTo("ISBN");
-        assertThat(actualSecondBook.ISBN_10.number).isEqualTo(2108 - 9990);
+        assertThat(actualSecondBook.ISBN_10.number).isEqualTo("2108-9990");
 
         Book actualThirdBook = (Book) actual.get(2);
 
@@ -1150,7 +1150,7 @@ public class BookStoreTest {
         assertThat(actualThirdBook.authors.get(1).firstName).isEqualTo("Tim");
         assertThat(actualThirdBook.authors.get(1).lastName).isEqualTo("Seneca");
         assertThat(actualThirdBook.ISBN_10.isbn).isEqualTo("ISBN");
-        assertThat(actualThirdBook.ISBN_10.number).isEqualTo(6166 - 2345);
+        assertThat(actualThirdBook.ISBN_10.number).isEqualTo("6166-2345");
 
         Book actualFourthBook = (Book) actual.get(3);
 
@@ -1164,7 +1164,7 @@ public class BookStoreTest {
         assertThat(actualFourthBook.authors.get(1).firstName).isEqualTo("Robert");
         assertThat(actualFourthBook.authors.get(1).lastName).isEqualTo("Howard");
         assertThat(actualFourthBook.ISBN_10.isbn).isEqualTo("ISBN");
-        assertThat(actualFourthBook.ISBN_10.number).isEqualTo(3297 - 4564);
+        assertThat(actualFourthBook.ISBN_10.number).isEqualTo("3297-4564");
 
         Book actualFifthBook = (Book) actual.get(4);
 
@@ -1176,7 +1176,7 @@ public class BookStoreTest {
         assertThat(actualFifthBook.authors.get(0).firstName).isEqualTo("Jeni");
         assertThat(actualFifthBook.authors.get(0).lastName).isEqualTo("Tsu");
         assertThat(actualFifthBook.ISBN_10.isbn).isEqualTo("ISBN");
-        assertThat(actualFifthBook.ISBN_10.number).isEqualTo(6166 - 2035);
+        assertThat(actualFifthBook.ISBN_10.number).isEqualTo("6166-2035");
 /*
         assertThat(actual.get(5).name).isEqualTo("Math");
         assertThat(actual.get(5).authors.get(0).firstName).isEqualTo("Robert");
@@ -1234,7 +1234,7 @@ public class BookStoreTest {
                 date1,
                 firstAuthorOfTheBook,
 
-                new ISBN("ISBN", 2108 - 9990))
+                new ISBN("ISBN", "2108-9990"))
         );
 
         ArrayList<Author> secondAuthorOfTheBook = new ArrayList<>();
@@ -1248,7 +1248,7 @@ public class BookStoreTest {
                 date2,
                 secondAuthorOfTheBook,
 
-                new ISBN("ISBN", 3297 - 4564))
+                new ISBN("ISBN", "3297-4564"))
         );
 
         ArrayList<Author> thirdAuthorOfTheBook = new ArrayList<>();
@@ -1263,7 +1263,7 @@ public class BookStoreTest {
                 date3,
                 thirdAuthorOfTheBook,
 
-                new ISBN("ISBN", 6166 - 2345))
+                new ISBN("ISBN", "6166-2345"))
         );
 
         ArrayList<Author> fourthAuthorOfTheBook = new ArrayList<>();
@@ -1277,7 +1277,7 @@ public class BookStoreTest {
                 date4,
                 fourthAuthorOfTheBook,
 
-                new ISBN("ISBN", 6166 - 2035))
+                new ISBN("ISBN", "6166-2035"))
         );
 
         ArrayList<Author> fifthAuthorOfTheBook = new ArrayList<>();
@@ -1290,7 +1290,7 @@ public class BookStoreTest {
                 date5,
                 fifthAuthorOfTheBook,
 
-                new ISBN("ISBN", 6166 - 2035))
+                new ISBN("ISBN", "6166-2035"))
         );
 
         List<ReadingMaterial> actual = subject.sortByName();
@@ -1308,7 +1308,7 @@ public class BookStoreTest {
         assertThat(actualFirstBook.authors.get(0).firstName).isEqualTo("Robert");
         assertThat(actualFirstBook.authors.get(0).lastName).isEqualTo("Ervin");
         assertThat(actualFirstBook.ISBN_10.isbn).isEqualTo("ISBN");
-        assertThat(actualFirstBook.ISBN_10.number).isEqualTo(2108 - 9990);
+        assertThat(actualFirstBook.ISBN_10.number).isEqualTo("2108-9990");
 
         Book actualSecondBook = (Book) actual.get(1);
 
@@ -1323,7 +1323,7 @@ public class BookStoreTest {
         assertThat(actualSecondBook.authors.get(1).firstName).isEqualTo("Tim");
         assertThat(actualSecondBook.authors.get(1).lastName).isEqualTo("Seneca");
         assertThat(actualSecondBook.ISBN_10.isbn).isEqualTo("ISBN");
-        assertThat(actualSecondBook.ISBN_10.number).isEqualTo(6166 - 2035);
+        assertThat(actualSecondBook.ISBN_10.number).isEqualTo("6166-2035");
 
         Book actualThirdBook = (Book) actual.get(2);
 
@@ -1338,7 +1338,7 @@ public class BookStoreTest {
         assertThat(actualThirdBook.authors.get(1).firstName).isEqualTo("Robert");
         assertThat(actualThirdBook.authors.get(1).lastName).isEqualTo("Howard");
         assertThat(actualThirdBook.ISBN_10.isbn).isEqualTo("ISBN");
-        assertThat(actualThirdBook.ISBN_10.number).isEqualTo(3297 - 4564);
+        assertThat(actualThirdBook.ISBN_10.number).isEqualTo("3297-4564");
 
         Book actualFourthBook = (Book) actual.get(3);
 
@@ -1354,7 +1354,7 @@ public class BookStoreTest {
         assertThat(actualFourthBook.authors.get(2).firstName).isEqualTo("William");
         assertThat(actualFourthBook.authors.get(2).lastName).isEqualTo("Soneca");
         assertThat(actualFourthBook.ISBN_10.isbn).isEqualTo("ISBN");
-        assertThat(actualFourthBook.ISBN_10.number).isEqualTo(6166 - 2345);
+        assertThat(actualFourthBook.ISBN_10.number).isEqualTo("6166-2345");
 
         Book actualFifthBook = (Book) actual.get(4);
 
@@ -1366,7 +1366,7 @@ public class BookStoreTest {
         assertThat(actualFifthBook.authors.get(0).firstName).isEqualTo("Jeni");
         assertThat(actualFifthBook.authors.get(0).lastName).isEqualTo("Tsu");
         assertThat(actualFifthBook.ISBN_10.isbn).isEqualTo("ISBN");
-        assertThat(actualFifthBook.ISBN_10.number).isEqualTo(6166 - 2035);
+        assertThat(actualFifthBook.ISBN_10.number).isEqualTo("6166-2035");
     }
 
     @Test
@@ -1382,7 +1382,7 @@ public class BookStoreTest {
                 date1,
                 firstAuthorOfTheBook,
 
-                new ISBN("ISBN", 2108 - 9990))
+                new ISBN("ISBN", "2108-9990"))
         );
 
         ArrayList<Author> secondAuthorOfTheBook = new ArrayList<>();
@@ -1396,7 +1396,7 @@ public class BookStoreTest {
                 date2,
                 secondAuthorOfTheBook,
 
-                new ISBN("ISBN", 3297 - 4564))
+                new ISBN("ISBN", "3297-4564"))
         );
 
         ArrayList<Author> thirdAuthorOfTheBook = new ArrayList<>();
@@ -1411,7 +1411,7 @@ public class BookStoreTest {
                 date3,
                 thirdAuthorOfTheBook,
 
-                new ISBN("ISBN", 6166 - 2345))
+                new ISBN("ISBN", "6166-2345"))
         );
 
         ArrayList<Author> fourthAuthorOfTheBook = new ArrayList<>();
@@ -1425,7 +1425,7 @@ public class BookStoreTest {
                 date4,
                 fourthAuthorOfTheBook,
 
-                new ISBN("ISBN", 6166 - 2035))
+                new ISBN("ISBN", "6166-2035"))
         );
 
         ArrayList<Author> fifthAuthorOfTheBook = new ArrayList<>();
@@ -1438,7 +1438,7 @@ public class BookStoreTest {
                 date5,
                 fifthAuthorOfTheBook,
 
-                new ISBN("ISBN", 6166 - 2035))
+                new ISBN("ISBN", "6166-2035"))
         );
 
         List<ReadingMaterial> actual = subject.sortByPriceFromLowToHigh();
@@ -1455,7 +1455,7 @@ public class BookStoreTest {
         assertThat(actualFirstBook.authors.get(0).firstName).isEqualTo("Robert");
         assertThat(actualFirstBook.authors.get(0).lastName).isEqualTo("Ervin");
         assertThat(actualFirstBook.ISBN_10.isbn).isEqualTo("ISBN");
-        assertThat(actualFirstBook.ISBN_10.number).isEqualTo(2108 - 9990);
+        assertThat(actualFirstBook.ISBN_10.number).isEqualTo("2108-9990");
 
         Book actualSecondBook = (Book) actual.get(1);
 
@@ -1469,7 +1469,7 @@ public class BookStoreTest {
         assertThat(actualSecondBook.authors.get(1).firstName).isEqualTo("Robert");
         assertThat(actualSecondBook.authors.get(1).lastName).isEqualTo("Howard");
         assertThat(actualSecondBook.ISBN_10.isbn).isEqualTo("ISBN");
-        assertThat(actualSecondBook.ISBN_10.number).isEqualTo(3297 - 4564);
+        assertThat(actualSecondBook.ISBN_10.number).isEqualTo("3297-4564");
 
         Book actualThirdBook = (Book) actual.get(2);
 
@@ -1485,7 +1485,7 @@ public class BookStoreTest {
         assertThat(actualThirdBook.authors.get(2).firstName).isEqualTo("William");
         assertThat(actualThirdBook.authors.get(2).lastName).isEqualTo("Soneca");
         assertThat(actualThirdBook.ISBN_10.isbn).isEqualTo("ISBN");
-        assertThat(actualThirdBook.ISBN_10.number).isEqualTo(6166 - 2345);
+        assertThat(actualThirdBook.ISBN_10.number).isEqualTo("6166-2345");
 
         Book actualFourthBook = (Book) actual.get(3);
 
@@ -1500,7 +1500,7 @@ public class BookStoreTest {
         assertThat(actualFourthBook.authors.get(1).firstName).isEqualTo("Tim");
         assertThat(actualFourthBook.authors.get(1).lastName).isEqualTo("Seneca");
         assertThat(actualFourthBook.ISBN_10.isbn).isEqualTo("ISBN");
-        assertThat(actualFourthBook.ISBN_10.number).isEqualTo(6166 - 2035);
+        assertThat(actualFourthBook.ISBN_10.number).isEqualTo("6166-2035");
 
         Book actualFifthBook = (Book) actual.get(4);
 
@@ -1512,7 +1512,7 @@ public class BookStoreTest {
         assertThat(actualFifthBook.authors.get(0).firstName).isEqualTo("Jeni");
         assertThat(actualFifthBook.authors.get(0).lastName).isEqualTo("Tsu");
         assertThat(actualFifthBook.ISBN_10.isbn).isEqualTo("ISBN");
-        assertThat(actualFifthBook.ISBN_10.number).isEqualTo(6166 - 2035);
+        assertThat(actualFifthBook.ISBN_10.number).isEqualTo("6166-2035");
     }
 
     @Test
@@ -1528,7 +1528,7 @@ public class BookStoreTest {
                 date1,
                 firstAuthorOfTheBook,
 
-                new ISBN("ISBN", 2108 - 9990))
+                new ISBN("ISBN", "2108-9990"))
         );
 
         ArrayList<Author> secondAuthorOfTheBook = new ArrayList<>();
@@ -1541,7 +1541,7 @@ public class BookStoreTest {
                 5.55,
                 date2,
                 secondAuthorOfTheBook,
-                new ISBN("ISBN", 3297 - 4564))
+                new ISBN("ISBN", "3297-4564"))
         );
 
         ArrayList<Author> thirdAuthorOfTheBook = new ArrayList<>();
@@ -1556,7 +1556,7 @@ public class BookStoreTest {
                 date3,
                 thirdAuthorOfTheBook,
 
-                new ISBN("ISBN", 6166 - 2345))
+                new ISBN("ISBN", "6166-2345"))
         );
 
         ArrayList<Author> fourthAuthorOfTheBook = new ArrayList<>();
@@ -1571,7 +1571,7 @@ public class BookStoreTest {
                 fourthAuthorOfTheBook,
 
 
-                new ISBN("ISBN", 6166 - 2225))
+                new ISBN("ISBN", "6166-2225"))
         );
 
         ArrayList<Author> fifthAuthorOfTheBook = new ArrayList<>();
@@ -1584,7 +1584,7 @@ public class BookStoreTest {
                 date5,
                 fifthAuthorOfTheBook,
 
-                new ISBN("ISBN", 6166 - 2035))
+                new ISBN("ISBN", "6166-2035"))
         );
 
         List<ReadingMaterial> actual = subject.sortByPriceFromHighToLow();
@@ -1601,7 +1601,7 @@ public class BookStoreTest {
         assertThat(actualFirstBook.authors.get(0).firstName).isEqualTo("Jeni");
         assertThat(actualFirstBook.authors.get(0).lastName).isEqualTo("Tsu");
         assertThat(actualFirstBook.ISBN_10.isbn).isEqualTo("ISBN");
-        assertThat(actualFirstBook.ISBN_10.number).isEqualTo(6166 - 2035);
+        assertThat(actualFirstBook.ISBN_10.number).isEqualTo("6166-2035");
 
         Book actualSecondBook = (Book) actual.get(1);
 
@@ -1615,7 +1615,7 @@ public class BookStoreTest {
         assertThat(actualSecondBook.authors.get(1).firstName).isEqualTo("Tim");
         assertThat(actualSecondBook.authors.get(1).lastName).isEqualTo("Seneca");
         assertThat(actualSecondBook.ISBN_10.isbn).isEqualTo("ISBN");
-        assertThat(actualSecondBook.ISBN_10.number).isEqualTo(6166 - 2225);
+        assertThat(actualSecondBook.ISBN_10.number).isEqualTo("6166-2225");
 
         Book actualThirdBook = (Book) actual.get(2);
 
@@ -1631,7 +1631,7 @@ public class BookStoreTest {
         assertThat(actualThirdBook.authors.get(2).firstName).isEqualTo("William");
         assertThat(actualThirdBook.authors.get(2).lastName).isEqualTo("Soneca");
         assertThat(actualThirdBook.ISBN_10.isbn).isEqualTo("ISBN");
-        assertThat(actualThirdBook.ISBN_10.number).isEqualTo(6166 - 2345);
+        assertThat(actualThirdBook.ISBN_10.number).isEqualTo("6166-2345");
 
         Book actualFourthBook = (Book) actual.get(3);
 
@@ -1643,7 +1643,7 @@ public class BookStoreTest {
         assertThat(actualFourthBook.authors.get(0).firstName).isEqualTo("Robert");
         assertThat(actualFourthBook.authors.get(0).lastName).isEqualTo("Ervin");
         assertThat(actualFourthBook.ISBN_10.isbn).isEqualTo("ISBN");
-        assertThat(actualFourthBook.ISBN_10.number).isEqualTo(2108 - 9990);
+        assertThat(actualFourthBook.ISBN_10.number).isEqualTo("2108-9990");
 
         Book actualFifthBook = (Book) actual.get(4);
 
@@ -1657,7 +1657,7 @@ public class BookStoreTest {
         assertThat(actualFifthBook.authors.get(1).firstName).isEqualTo("Robert");
         assertThat(actualFifthBook.authors.get(1).lastName).isEqualTo("Howard");
         assertThat(actualFifthBook.ISBN_10.isbn).isEqualTo("ISBN");
-        assertThat(actualFifthBook.ISBN_10.number).isEqualTo(3297 - 4564);
+        assertThat(actualFifthBook.ISBN_10.number).isEqualTo("3297-4564");
     }
 
     @Test
@@ -1713,7 +1713,7 @@ public class BookStoreTest {
                 59.0,
                 date5,
                 firstAuthorOfTheBook,
-                new ISBN("ISBN", 6166 - 2035))
+                new ISBN("ISBN", "6166-2035"))
         );
 
         List<ReadingMaterial> actual = subject.getAllItems();
@@ -1748,6 +1748,6 @@ Magazine actualSecondMagazine = (Magazine) actual.get(1);
         assertThat(actualFirstBook.authors.get(0).firstName).isEqualTo("Jeni");
         assertThat(actualFirstBook.authors.get(0).lastName).isEqualTo("Tsu");
         assertThat(actualFirstBook.ISBN_10.isbn).isEqualTo("ISBN");
-        assertThat(actualFirstBook.ISBN_10.number).isEqualTo(6166 - 2035);
+        assertThat(actualFirstBook.ISBN_10.number).isEqualTo("6166-2035");
     }
 }

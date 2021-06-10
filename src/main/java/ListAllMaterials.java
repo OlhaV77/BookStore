@@ -1,5 +1,4 @@
 
-
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -13,13 +12,14 @@ public class ListAllMaterials {
 
         Date date1 = new Date(2020,4,30);
 
-        Book book = new Book("History",
+        Book book1 = new Book("History",
                 5.55,
                 date1,
                 authorsForFirstBook,
-                new ISBN("ISBN",2108-9990)
+                new ISBN("ISBN", "2108-9990")
         );
-        subject.add(book);
+        subject.add(book1);
+
 
         ArrayList<Author> authorsForSecondBook = new ArrayList<>();
 
@@ -27,26 +27,27 @@ public class ListAllMaterials {
         authorsForSecondBook.add(new Author("Lee", "Keem"));
         authorsForSecondBook.add(new Author("Leo", "Tolstoy"));
 
-       Date date = new Date(2020, 3, 13);
+     Date date2 = new Date(2021, 3, 13);
 
         Book book2 = new Book("Math",
                 8.67,
-                date,
+                date2,
                 authorsForSecondBook,
-                new ISBN("ISBN", 3297-4564)
+                new ISBN("ISBN", "2345-4467")
         );
         subject.add(book2);
 
-        ArrayList<Author> secondBookAuthor = new ArrayList<>();
-        secondBookAuthor.add(new Author("Lewis", "Carroll"));
 
-       Date date2 = new Date(2013, 2, 15);
+        ArrayList<Author> thirdBookAuthor = new ArrayList<>();
+        thirdBookAuthor.add(new Author("Lewis", "Carroll"));
+
+       Date date3 = new Date(2013, 2, 15);
 
         Book book3 = new Book("Art",
-                8.67,
-                date2,
-                secondBookAuthor,
-                new ISBN("ISBN", 3297-6754));
+                15.6,
+                date3,
+                thirdBookAuthor,
+                new ISBN("ISBN","2341-6754"));
         subject.add(book3);
 
         for (int i = 0; i < subject.items.size(); i++) {

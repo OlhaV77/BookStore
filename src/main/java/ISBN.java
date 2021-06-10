@@ -1,14 +1,12 @@
-import java.util.Date;
-import java.util.List;
+
 
 public class ISBN {
     String isbn;
-    int number;
+    String number;
 
-    public ISBN(String isbn, int number) {
+    public ISBN(String isbn, String number) {
         this.isbn = isbn;
         this.number = number;
-
     }
 
     @Override
