@@ -52,6 +52,9 @@ public class ListAllMaterials {
                 new ISBN("ISBN", "2341-6754"));
         subject.add(book3);
 
+        Date date = new Date(2021, 2, 1);
+        subject.add(new Magazine("Cosmo", 3.55, date, 1223));
+
 
         for (int i = 0; i < subject.items.size(); i++) {
             System.out.println(subject.items.get(i));
