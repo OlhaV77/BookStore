@@ -54,21 +54,21 @@ public class BookStore {
         //        .collect(Collectors.toList());
 
         List<Book> books = new ArrayList<>();
-        for(ReadingMaterial read : items) {
+        for (ReadingMaterial read : items) {
             if (read instanceof Book) {
                 Book book1 = (Book) read;
                 books.add(book1);
             }
         }
 
-            for (Book book : books) {
-                for (Author someAuthor : book.authors) {
-                    if (someAuthor.firstName.equals(author)) {
-                        result.add(book);
+        for (Book book : books) {
+            for (Author someAuthor : book.authors) {
+                if (someAuthor.firstName.equals(author)) {
+                    result.add(book);
                 }
             }
         }
-            return result;
+        return result;
     }
 
     public List<ReadingMaterial> findByName(String name) {
@@ -119,4 +119,43 @@ public class BookStore {
                 .sorted(Comparator.comparing(x -> x.name))
                 .collect(Collectors.toList());
     }
+
+    public int scanUserInputMenu() {
+        System.out.println(1 + ". Show all books");
+        System.out.println((2 + ". Quit"));
+
+        int inputMenu = scanMenu();
+        if (inputMenu != 1 && inputMenu != 2) {
+            System.out.println("Wrong menu selected");
+        }
+        return inputMenu;
+    }
+
+    public int scanMenu() {
+        Scanner scan = new Scanner(System.in);
+        return scan.nextInt();
+    }
+
+    public List<ReadingMaterial> showAllBook() {
+        int displayBooks = 1;
+        int quit = 2;
+
+        while (true){
+
+        int userChoice = scanUserInputMenu();
+
+        if (userChoice == displayBooks) {
+
+            return items.stream()
+                    .filter(readingMaterial -> readingMaterial instanceof Book)
+                    .map(book -> (Book) book)
+                    .collect(Collectors.toList());
+        }
+
+        if (userChoice == quit) {
+            System.exit(0);
+        }
+        }
+    }
+
 }
